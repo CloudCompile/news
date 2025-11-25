@@ -1,0 +1,255 @@
+:root {
+    --primary-color: #ffffff;
+    --text-color: #1f1f1f;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --shape-1-color: #ff00cc;
+    --shape-2-color: #3333ff;
+    --shape-3-color: #00ffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Google Sans Text', sans-serif;
+    color: var(--text-color);
+    background: #f0f2f5;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, .logo {
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 700;
+}
+
+/* Background Shapes */
+.background-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: float 10s infinite ease-in-out alternate;
+}
+
+.shape-1 {
+    background: var(--shape-1-color);
+    width: 600px;
+    height: 600px;
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    background: var(--shape-2-color);
+    width: 500px;
+    height: 500px;
+    bottom: -50px;
+    right: -100px;
+    animation-delay: -5s;
+}
+
+.shape-3 {
+    background: var(--shape-3-color);
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    left: 40%;
+    animation-delay: -2s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(30px, 30px) rotate(10deg); }
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 16px;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    z-index: 100;
+    padding: 1rem 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: #000;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--shape-2-color);
+}
+
+/* Main Content */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto 4rem auto;
+}
+
+.article-content {
+    padding: 3rem;
+    margin-top: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    color: #444;
+}
+
+p {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.6);
+    font-weight: 700;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Links and Citations */
+a {
+    color: var(--shape-2-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+sup {
+    font-size: 0.75em;
+    color: #666;
+}
+
+.works-cited {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+ol {
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    word-break: break-all;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .article-content {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        display: none; /* Simple hide for mobile for this demo */
+    }
+    
+    .shape-1 {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .shape-2 {
+        width: 250px;
+        height: 250px;
+    }
+}
